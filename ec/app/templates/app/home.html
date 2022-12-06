@@ -1,0 +1,97 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} Home {% endblock title %}
+
+{% block banner-slider %}
+
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+<!-- Indicators/dots -->
+<div class="carousel-indicators">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+</div>
+
+<!-- The slideshow/carousel -->
+<div class="carousel-inner">
+    <div class="carousel-item active">
+    <img src="{% static 'app/images/banner/b1.jpg' %}" alt="banner slide" class="d-block w-100" style="width:100%">
+    </div>
+    <div class="carousel-item">
+    <img src="{% static 'app/images/banner/b2.jpg' %}" alt="banner slide" class="d-block w-100" style="width:100%">
+    </div>
+    <div class="carousel-item">
+    <img src="{% static 'app/images/banner/b3.jpg' %}" alt="banner slide" class="d-block w-100" style="width:100%">
+    </div>
+</div>
+
+<!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+{% endblock banner-slider%}
+
+
+{% block information %}
+<div class="container">
+    <div class="row bg-success text-center p-5 border-bottom shadow">
+        <h1>Products</h1>
+        <small class="fs-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, dolor error perferendis labore iusto commodi fuga inventore incidunt eos non nam esse suscipit dignissimos natus, ab reiciendis unde possimus neque.
+    
+        </small>
+    </div>    
+</div>
+
+{% endblock information %}
+
+{% block main-content %}
+<div class="container">
+    <h2 class="text-center">Danh sách</h2>
+    <div class="row container">
+        <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+        data-wow-duration="1s"; data-wow-delay="0.6s"
+        style="animation-duration: 1s; animation-delay:0.6s; animation-name: none">
+            <div class="goodnesssec buttermilk smbg">
+                <a href="{% url 'category' 'DT' %}">
+                    <div class="goodnessseccont text-center">
+                        <img src="{% static 'app/images/product/dien-thoai.jpg' %}" class="img-responsive center-block" alt="">
+                        <p class="mlkpro">Điện thoại</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+        data-wow-duration="1s"; data-wow-delay="0.6s"
+        style="animation-duration: 1s; animation-delay:0.6s; animation-name: none">
+            <div class="goodnesssec buttermilk smbg">
+                <a href="{% url 'category' 'TL' %}">
+                    <div class="goodnessseccont text-center">
+                        <img src="{% static 'app/images/product/may-tinh-bang.jpg' %}" class="img-responsive center-block" alt="">
+                        <p class="mlkpro">Máy tính bảng</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+        data-wow-duration="1s"; data-wow-delay="0.6s"
+        style="animation-duration: 1s; animation-delay:0.6s; animation-name: none">
+            <div class="goodnesssec buttermilk smbg">
+                <a href="{% url 'category' 'LT' %}">
+                    <div class="goodnessseccont text-center">
+                        <img src="{% static 'app/images/product/laptop.jpg' %}" class="img-responsive center-block" alt="">
+                        <p class="mlkpro">Laptop</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+{% endblock main-content %}

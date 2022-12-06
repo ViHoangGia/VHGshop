@@ -25,7 +25,7 @@
             <form action="" method="post">
                 {% csrf_token %}
                 {% for fm in form %}
-                    {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.error|striptags}}</small> <br>
+                    {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small> <br>
                 {% endfor %}
 
                 <div class="col-12 mt-3">

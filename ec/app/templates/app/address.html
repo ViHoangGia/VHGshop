@@ -25,12 +25,14 @@
                             <p>Địa chỉ: {{ad.address}}</p>
                             <p>Mobile: {{ad.mobile}}</p>
                             <p>Thành phố: {{ad.city}}</p>
-                            
+                            <p class="text-center"> <a href="{% url 'updateAddress' pk=ad.id %}" type="button" class="btn btn-success">Cập nhật</a></p>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
+    </div>
+</div>
 
 {% endblock main-content %}

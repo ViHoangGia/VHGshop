@@ -1,9 +1,9 @@
 # VHGshop
 Bài này là của Vi Hoàng Gia
 
-Thời gian : 11:34pm
-Ngày : 6/12/2022
-tgian video : 4:05:31
+Thời gian : 5:34pm
+Ngày : 7/12/2022
+tgian video : 4:21:14
 
 
 code carousel trong myscript.js

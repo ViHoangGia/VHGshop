@@ -1,0 +1,59 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} Mua {% endblock title %}
+
+{% block main-content %}
+<div class="container">
+    {% if messages %}
+        {% for msg in messages %}
+        <div class="alert alert-danger" role="alert">
+            {{msg}}
+        </div>
+        {% endfor %}
+    {% endif %}
+    <div class="row mt-5">
+        <div class="col-sm-6">
+            <h4>Tổng hợp đơn hàng</h4>
+            <hr>
+            {% for item in cart_items %}
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <h5>Sản phẩm: {{item.product.title}}</h5>
+                        <p>Số lượng: {{item.quantity}}</p>
+                        <p class="fw-bold">Giá: {{item.product.discounted_price}} $</p>
+                    </div>
+                </div>
+            {% endfor %}
+            <p class="fw-bold">Tổng tiền + phí ship = {{totalamount}} $</p>
+            <small>Điều khoản điều kiện: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci tempora similique modi eius id, eum expedita odit nostrum repudiandae itaque voluptatibus mollitia rerum et aliquam nesciunt quasi esse! Magni, sunt.</small>
+        </div>
+        <div class="col-sm-4 offset-sm-1">
+            <h4>Chọn địa chỉ giao hàng</h4>
+            <hr>
+            <form method="post" id="myform">
+                {% csrf_token %}
+                {% for ad in add %}
+                <div class="card">
+                    <div class="card-body">
+                        <h5>{{ad.name}}</h5>
+                        <p>Điện thoại: {{ad.mobile}}</p>
+                        <p>{{ad.address}} {{ad.city}}</p>
+                    </div>
+                </div>
+                <div class="form-check mt-2 mb-5">
+                    <input class="form-check-input" type="radio" name="custid" id="custadd{{forloop.counter}}" value="{{ad.id}}">
+                    <label class="form-check-label fw-bold" for="custadd{{forloop.counter}}">Địa chỉ:{{forloop.counter}}</label>
+                </div>
+                {% endfor %}
+                <div class="form-check mb-3">
+                    <label for="totalamount" class="form">Tổng tiền</label>
+                    <input type="number" class="form-control" name="totalamount" value={{totalamount}} readonly>
+                </div>
+                <div class="text-end">
+                    <button id="rzp-button1" type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Thanh toán</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main-content%}

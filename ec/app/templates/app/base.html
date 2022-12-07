@@ -28,6 +28,7 @@
             </button>
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
+                    {% if request.user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
@@ -67,17 +68,19 @@
                     </ul>
                 </li>
                 <li class="nav-item mx-2">
-                    <a href="#" class="nav-link">Giỏ hàng</a>
+                    <a href="{% url 'showcart' %}" class="nav-link">Giỏ hàng</a>
                 </li>
                 <li class="nav-item mx-2">
                     <a href="#" class="nav-link">Yêu thích</a>
                 </li>
+                {% else %}
                 <li class="nav-item mx-2">
                     <a href="{% url 'login' %}" class="nav-link">Đăng nhập</a>
                 </li>
                 <li class="nav-item mx-2">
                     <a href="{% url 'customerregistration' %}" class="nav-link">Đăng ký</a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </nav>

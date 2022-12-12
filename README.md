@@ -1,9 +1,9 @@
 # VHGshop
 Bài này là của Vi Hoàng Gia
 
-Thời gian : 5:34pm
-Ngày : 7/12/2022
-tgian video : 4:42:41
+Thời gian : 7:42pm
+Ngày : 12/12/2022
+tgian video : xong
 
 từ 4:21:05-
 

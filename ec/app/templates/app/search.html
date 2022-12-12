@@ -1,10 +1,10 @@
 {% extends 'app/base.html' %}
 {% load static %}
-{% block title %} Category {% endblock title %}
+{% block title %} Tìm kiếm {% endblock title %}
 
 {% block main-content %}
 <div class="container my-5">
-    <div class="row">
+    <div class="row">        
         {% for prod in product %}
             <div class="col text-center mb-4">
                 <a href="{% url 'product-detail' prod.id %}" class="btn">
@@ -18,9 +18,7 @@
                     </div>
                 </a>
             </div>
-        {% endfor %}
+        {% endfor %}            
     </div>
 </div>
-</div>
-
-{% endblock main-content%}
+{% endblock main-content %}

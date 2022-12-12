@@ -3,8 +3,9 @@ Bài này là của Vi Hoàng Gia
 
 Thời gian : 5:34pm
 Ngày : 7/12/2022
-tgian video : 4:21:14
+tgian video : 4:42:41
 
+từ 4:21:05-
 
 code carousel trong myscript.js
 

@@ -49,9 +49,12 @@
                         <a class="nav-link" href="{% url 'contact' %}">Liên hệ</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="text" placeholder="Search">
-                    <button class="btn btn-primary" type="button">Search</button>
+                <form class="d-flex" role="search" action="/search">
+                    <input class="form-control me-2" type="search" placeholder="Tìm kiếm" name="search" aria-label="Search">
+                    <button class="btn btn-primary" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                      </svg>
+                    </button>
                 </form>
             </div>
 
@@ -62,16 +65,16 @@
                     aria-expanded="false">Tài khoản</a>
                     <ul class="dropdown-menu" id="profileDropdown" >
                         <li><a class="dropdown-item" href="{% url 'profile' %}">Hồ sơ</a></li>
-                        <li><a class="dropdown-item" href="#">Đặt hàng</a></li>
+                        <li><a class="dropdown-item" href="{% url 'orders'%}">Đơn hàng</a></li>
                         <li><a class="dropdown-item" href="{% url 'passwordchange' %}">Đổi mật khẩu</a></li>
                         <li><a class="dropdown-item" href="{% url 'logout' %}">Thoát</a></li>
                     </ul>
                 </li>
                 <li class="nav-item mx-2">
-                    <a href="{% url 'showcart' %}" class="nav-link">Giỏ hàng</a>
+                    <a href="{% url 'showcart' %}" class="nav-link"> <span class="badge bg-danger">{% if totalitem > 0 %} {{totalitem}} {% endif %}</span> Giỏ hàng</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a href="#" class="nav-link">Yêu thích</a>
+                    <a href="{% url 'showwishlist' %}" class="nav-link"><span class="badge bg-danger">{% if wishitem > 0 %} {{wishitem}} {% endif %}</span> Yêu thích<i class="fa fa-heart"></i></a>
                 </li>
                 {% else %}
                 <li class="nav-item mx-2">

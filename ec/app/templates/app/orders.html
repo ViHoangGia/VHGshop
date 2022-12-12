@@ -1,0 +1,61 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} Đơn hàng {% endblock title %}
+
+{% block main-content %}
+<div class="container my-5">
+    <div class="row">
+        <h3> Wellcome <span class="text-capitalize">{{request.user}}</span></h3>
+        <div class="col-sm-2 border-end">
+            <ul class="list-unstyled">
+                <li class="d-grid"><a href="{% url 'profile' %}" class="btn">Hồ sơ</a></li>
+                <li class="d-grid"><a href="{% url 'address' %}" class="btn">Địa chỉ</a></li>
+                <li class="d-grid"><a href="{% url 'orders' %}" class="btn btn-primary">Đơn hàng</a></li>
+                <li class="d-grid"><a href="{% url 'passwordchange' %}" class="btn">Đổi mật khẩu</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 offset-sm-1">
+            {% for op in order_placed %}
+            <div class="row">
+                <div class="col-sm-2">
+                    <img src="{{op.product.product_image.url}}" class="img-fluid" height="100" width="100">
+                </div>
+                <div class="col-sm-7">
+                    <p>Sản phẩm: {{op.product.title}}</p>
+                    <p>Số lượng: {{op.quantity}}</p>
+                    <p>Giá: {{op.total_cost}}</p>
+                </div>
+                <div class="col-sm-3">
+                    <p>Tình trạng đơn hàng: {{op.status}}</p>
+                    {% if op.status == 'Da duoc xac nhan'%}
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    {% endif %}
+                    {% if op.status == 'Dang dong goi'%}
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    {% endif %}
+                    {% if op.status == 'Dang giao'%}
+                    <div class="progress">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    {% endif %}
+                    {% if op.status == 'Da giao'%}
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    {% endif %}
+                    {% if op.status == 'Da huy'%}
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div><br><br>
+{% endblock main-content%}

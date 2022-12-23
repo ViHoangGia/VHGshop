@@ -18,7 +18,7 @@ def home(request):
         wishitem = len(Wishlist.objects.filter(user=request.user))
     return render(request,"app/home.html", locals())
 
-@login_required
+# @login_required
 def about(request):
     totalitem = 0
     wishlist = 0
@@ -27,7 +27,7 @@ def about(request):
         wishitem = len(Wishlist.objects.filter(user=request.user))
     return render(request,"app/about.html", locals())
 
-@login_required
+# @login_required
 def contact(request):
     totalitem = 0
     wishitem = 0
@@ -36,7 +36,7 @@ def contact(request):
         wishitem = len(Wishlist.objects.filter(user=request.user))
     return render(request,"app/contact.html", locals())
 
-@method_decorator(login_required, name='dispatch')
+# @method_decorator(login_required, name='dispatch')
 class CategoryView(View):
     def get(self, request, val):
         totalitem = 0
@@ -48,7 +48,7 @@ class CategoryView(View):
         title = Product.objects.filter(category=val).values('title')
         return render(request,"app/category.html", locals())
 
-@method_decorator(login_required, name='dispatch')
+# @method_decorator(login_required, name='dispatch')
 class ProductDetail(View):
     def get(self, request, pk):
         product = Product.objects.get(pk=pk)     
@@ -300,7 +300,7 @@ def minus_wishlist(request):
         }
     return JsonResponse(data)
 
-@login_required
+# @login_required
 def search(request):
     query = request.GET['search']
     totalitem = 0

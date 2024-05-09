@@ -1,3 +1,3 @@
 # VHGshop
-Bài này là của Vi Hoàng Gia
+Tên SV: Vi Hoàng Gia
 MSSV: 18033885
